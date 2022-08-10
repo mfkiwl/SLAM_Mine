@@ -11,6 +11,7 @@ private:
     std::thread *Thread_RSDataCatch;
     std::thread *Thread_RSPoseSolve;
     realsense *rs_t;
+    imu_pose *imu;
     bool realsense_init_flag = false;
     bool imu_init_flag = false;
 

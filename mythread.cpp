@@ -26,8 +26,9 @@ void mythread::Thread(long fps)
 
 mythread::mythread(/* args */)
 {
-    // rs_t = new realsense();
-    rs_t = new realsense(true, true, true, true);
+    rs_t = new realsense();
+    imu = new imu_pose();
+    // rs_t = new realsense(true, true, true, true);
     Thread_RSDataCatch = new std::thread(std::mem_fn(&mythread::RSDataCatch), this, 50);
     Thread_RSPoseSolve = new std::thread(std::mem_fn(&mythread::RSPoseSolve), this, 100);
     Thread_RSDataCatch->join();
@@ -79,7 +80,7 @@ void mythread::RSPoseSolve(long fps)
         }
         if (!imu_init_flag)
         {
-            if (imu_init(*rs_t))
+            if (imu->imu_init(*rs_t))
             {
                 std::cout << "IMU Initialized Successfull" << std::endl;
                 imu_init_flag = true;
@@ -91,6 +92,12 @@ void mythread::RSPoseSolve(long fps)
         }
 
         auto now = std::chrono::high_resolution_clock::now();
+
+        imu->imu_pose_calculate(imu->RS2VecToFusionVec(rs_t->return_gyro_frame()),
+                                imu->RS2VecToFusionVec(rs_t->return_accel_frame()));
+
+        std::cout << "Euler: " << imu->return_euler().x << " " << imu->return_euler().y
+                  << " " << imu->return_euler().z << " " << std::endl;
 
         // std::cout << "Total FPS is: " << FPS_Calc(start, now) << std::endl;
         auto timepoint = start + std::chrono::milliseconds(FPS2MillTime(Thread_RSDataSolve_FPS));

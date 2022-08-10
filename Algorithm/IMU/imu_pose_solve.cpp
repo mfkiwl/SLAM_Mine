@@ -1,6 +1,5 @@
 #include "imu_pose_solve.hpp"
 
-#include "Fusion.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <time.h>
@@ -8,21 +7,15 @@
 
 #define SAMPLE_RATE (100)
 
-// Define calibration (replace with actual calibration data)
-const FusionMatrix gyroscopeMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
-const FusionVector gyroscopeSensitivity = {1.0f, 1.0f, 1.0f};
-const FusionVector gyroscopeOffset = {0.0f, 0.0f, 0.0f};
-const FusionMatrix accelerometerMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
-const FusionVector accelerometerSensitivity = {1.0f, 1.0f, 1.0f};
-const FusionVector accelerometerOffset = {0.0f, 0.0f, 0.0f};
-const FusionMatrix softIronMatrix = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
-const FusionVector hardIronOffset = {0.0f, 0.0f, 0.0f};
+imu_pose::imu_pose(/* args */)
+{
+}
 
-// Initialise algorithms
-FusionOffset offset;
-FusionAhrs ahrs;
+imu_pose::~imu_pose()
+{
+}
 
-bool imu_init(realsense &rs_t)
+bool imu_pose::imu_init(realsense &rs_t)
 {
     rs2_vector gyro_total, gyro_ava, gyro_last_ava;
     rs2_vector accel_total, accel_ava, accel_last_ava;
@@ -36,16 +29,16 @@ bool imu_init(realsense &rs_t)
     long count = 0;
     long enable_gyro_flag = 0, enable_accel_flag = 0;
 
-    // FusionOffsetInitialise(&offset, SAMPLE_RATE);
-    // FusionAhrsInitialise(&ahrs);
-    // // Set AHRS algorithm settings
-    // const FusionAhrsSettings settings = {
-    //     .gain = 0.5f,
-    //     .accelerationRejection = 10.0f,
-    //     .magneticRejection = 20.0f,
-    //     .rejectionTimeout = 5 * SAMPLE_RATE, /* 5 seconds */
-    // };
-    // FusionAhrsSetSettings(&ahrs, &settings);
+    FusionOffsetInitialise(&offset, SAMPLE_RATE);
+    FusionAhrsInitialise(&ahrs);
+    // Set AHRS algorithm settings
+    const FusionAhrsSettings settings = {
+        .gain = 0.5f,
+        .accelerationRejection = 10.0f,
+        .magneticRejection = 20.0f,
+        .rejectionTimeout = 5 * SAMPLE_RATE, /* 5 seconds */
+    };
+    FusionAhrsSetSettings(&ahrs, &settings);
 
     while (true)
     {
@@ -77,6 +70,7 @@ bool imu_init(realsense &rs_t)
         {
             std::cout << "gyro bias: " << gyro_ava.x << " " << gyro_ava.y << " " << gyro_ava.z << std::endl;
             std::cout << "accel bias: " << accel_ava.x << " " << accel_ava.y << " " << accel_ava.z << std::endl;
+            gyroscopeOffset = RS2VecToFusionVec(gyro_ava);
             return true;
         }
 
@@ -90,29 +84,48 @@ bool imu_init(realsense &rs_t)
     return false;
 }
 
-FusionEuler imu_pose_calculate(FusionVector gyroscope, FusionVector accelerometer)
+void imu_pose::imu_pose_calculate(FusionVector gyroscope, FusionVector accelerometer)
 {
-    // const clock_t timestamp = clock(); // replace this with actual gyroscope timestamp
-    //                                    // Apply calibration
-    // gyroscope = FusionCalibrationInertial(gyroscope, gyroscopeMisalignment, gyroscopeSensitivity, gyroscopeOffset);
-    // accelerometer = FusionCalibrationInertial(accelerometer, accelerometerMisalignment, accelerometerSensitivity, accelerometerOffset);
+    const FusionVector magnetometer = {0.0f, 0.0f, 0.0f};
+    const clock_t timestamp = clock(); // replace this with actual gyroscope timestamp
+                                       // Apply calibration
+    gyroscope = FusionCalibrationInertial(gyroscope, gyroscopeMisalignment, gyroscopeSensitivity, gyroscopeOffset);
+    accelerometer = FusionCalibrationInertial(accelerometer, accelerometerMisalignment, accelerometerSensitivity, accelerometerOffset);
 
-    // // Update gyroscope offset correction algorithm
-    // gyroscope = FusionOffsetUpdate(&offset, gyroscope);
+    // Update gyroscope offset correction algorithm
+    gyroscope = FusionOffsetUpdate(&offset, gyroscope);
 
-    // // Calculate delta time (in seconds) to account for gyroscope sample clock error
-    // static clock_t previousTimestamp;
-    // const float deltaTime = (float)(timestamp - previousTimestamp) / (float)CLOCKS_PER_SEC;
-    // previousTimestamp = timestamp;
+    // Calculate delta time (in seconds) to account for gyroscope sample clock error
+    static clock_t previousTimestamp;
+    const float deltaTime = (float)(timestamp - previousTimestamp) / (float)CLOCKS_PER_SEC;
+    previousTimestamp = timestamp;
 
-    // // Update gyroscope AHRS algorithm
-    // FusionAhrsUpdate(&ahrs, gyroscope, accelerometer, magnetometer, deltaTime);
+    // Update gyroscope AHRS algorithm
+    FusionAhrsUpdate(&ahrs, gyroscope, accelerometer, magnetometer, deltaTime);
 
-    // // Print algorithm outputs
-    // const FusionEuler euler = FusionQuaternionToEuler(FusionAhrsGetQuaternion(&ahrs));
-    // const FusionVector earth = FusionAhrsGetEarthAcceleration(&ahrs);
+    // Print algorithm outputs
+    euler = FusionQuaternionToEuler(FusionAhrsGetQuaternion(&ahrs));
+    earth = FusionAhrsGetEarthAcceleration(&ahrs);
 
     // printf("Roll %0.1f, Pitch %0.1f, Yaw %0.1f, X %0.1f, Y %0.1f, Z %0.1f\n",
     //        euler.angle.roll, euler.angle.pitch, euler.angle.yaw,
     //        earth.axis.x, earth.axis.y, earth.axis.z);
+}
+
+rs2_vector imu_pose::return_euler(void)
+{
+    rs2_vector a;
+    a.x = euler.angle.pitch;
+    a.y = euler.angle.roll;
+    a.z = euler.angle.yaw;
+    return a;
+}
+
+rs2_vector imu_pose::return_earth(void)
+{
+    rs2_vector a;
+    a.x = earth.axis.x;
+    a.y = earth.axis.y;
+    a.z = earth.axis.z;
+    return a;
 }

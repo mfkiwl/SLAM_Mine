@@ -11,7 +11,7 @@ find_package(Threads REQUIRED)
 include_directories(
     Camera/Realsense
     Algorithm
-    Algorithm/Fusion
+    Algorithm/IMU/Fusion
     Algorithm/IMU
     ${OpenCV_INCLUDE_DIRS}
 )
@@ -24,9 +24,9 @@ Algorithm/IMU/imu_pose_solve.cpp
 Algorithm/feature_match.cpp
 Algorithm/pose_estimation.cpp
 Algorithm/distance_estimation.cpp
-Algorithm/Fusion/FusionAhrs.c
-Algorithm/Fusion/FusionCompass.c
-Algorithm/Fusion/FusionOffset.c
+Algorithm/IMU/Fusion/FusionAhrs.c
+Algorithm/IMU/Fusion/FusionCompass.c
+Algorithm/IMU/Fusion/FusionOffset.c
 )
 
 target_link_libraries(
