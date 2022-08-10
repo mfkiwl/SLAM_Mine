@@ -12,7 +12,6 @@ include_directories(
     Camera/Realsense
     Algorithm
     Algorithm/Fusion
-    Imu
     ${OpenCV_INCLUDE_DIRS}
 )
 
@@ -27,7 +26,6 @@ Algorithm/imu_pose_solve.cpp
 Algorithm/Fusion/FusionAhrs.c
 Algorithm/Fusion/FusionCompass.c
 Algorithm/Fusion/FusionOffset.c
-Imu/imu_realsense.cpp
 )
 
 target_link_libraries(
