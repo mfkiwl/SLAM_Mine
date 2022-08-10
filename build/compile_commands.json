@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/main.cpp.o -c /home/lmh/桌面/slam/main.cpp",
+  "file": "/home/lmh/桌面/slam/main.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/mythread.cpp.o -c /home/lmh/桌面/slam/mythread.cpp",
+  "file": "/home/lmh/桌面/slam/mythread.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Camera/Realsense/realsense.cpp.o -c /home/lmh/桌面/slam/Camera/Realsense/realsense.cpp",
+  "file": "/home/lmh/桌面/slam/Camera/Realsense/realsense.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/feature_match.cpp.o -c /home/lmh/桌面/slam/Algorithm/feature_match.cpp",
+  "file": "/home/lmh/桌面/slam/Algorithm/feature_match.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/pose_estimation.cpp.o -c /home/lmh/桌面/slam/Algorithm/pose_estimation.cpp",
+  "file": "/home/lmh/桌面/slam/Algorithm/pose_estimation.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/distance_estimation.cpp.o -c /home/lmh/桌面/slam/Algorithm/distance_estimation.cpp",
+  "file": "/home/lmh/桌面/slam/Algorithm/distance_estimation.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/imu_pose_solve.cpp.o -c /home/lmh/桌面/slam/Algorithm/imu_pose_solve.cpp",
+  "file": "/home/lmh/桌面/slam/Algorithm/imu_pose_solve.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9  -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/Fusion/FusionAhrs.c.o   -c /home/lmh/桌面/slam/Algorithm/Fusion/FusionAhrs.c",
+  "file": "/home/lmh/桌面/slam/Algorithm/Fusion/FusionAhrs.c"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9  -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/Fusion/FusionCompass.c.o   -c /home/lmh/桌面/slam/Algorithm/Fusion/FusionCompass.c",
+  "file": "/home/lmh/桌面/slam/Algorithm/Fusion/FusionCompass.c"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9  -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/Fusion/FusionOffset.c.o   -c /home/lmh/桌面/slam/Algorithm/Fusion/FusionOffset.c",
+  "file": "/home/lmh/桌面/slam/Algorithm/Fusion/FusionOffset.c"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/Realsense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/Fusion -I/home/lmh/桌面/slam/Imu -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Imu/imu_realsense.cpp.o -c /home/lmh/桌面/slam/Imu/imu_realsense.cpp",
+  "file": "/home/lmh/桌面/slam/Imu/imu_realsense.cpp"
+}
+]
