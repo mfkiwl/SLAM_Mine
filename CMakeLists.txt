@@ -12,6 +12,7 @@ include_directories(
     Camera/Realsense
     Algorithm
     Algorithm/Fusion
+    Algorithm/IMU
     ${OpenCV_INCLUDE_DIRS}
 )
 
@@ -19,10 +20,10 @@ add_executable(slam
 main.cpp 
 mythread.cpp
 Camera/Realsense/realsense.cpp
+Algorithm/IMU/imu_pose_solve.cpp
 Algorithm/feature_match.cpp
 Algorithm/pose_estimation.cpp
 Algorithm/distance_estimation.cpp
-Algorithm/imu_pose_solve.cpp
 Algorithm/Fusion/FusionAhrs.c
 Algorithm/Fusion/FusionCompass.c
 Algorithm/Fusion/FusionOffset.c
