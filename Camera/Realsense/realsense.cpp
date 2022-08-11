@@ -114,7 +114,7 @@ bool realsense::color_frame_solve(void)
     color_frame = frame_set.get_color_frame();
     if (!color_frame.get_data_size())
     {
-        std::cout << "空" << std::endl;
+        // std::cout << "空" << std::endl;
         return false;
     }
     return true;

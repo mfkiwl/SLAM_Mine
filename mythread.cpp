@@ -27,8 +27,8 @@ void mythread::Thread(long fps)
 mythread::mythread(/* args */)
 {
     rs_t = new realsense();
-    imu = new imu_pose();
     // rs_t = new realsense(true, true, true, true);
+    imu = new imu_pose();
     Thread_RSDataCatch = new std::thread(std::mem_fn(&mythread::RSDataCatch), this, 50);
     Thread_RSPoseSolve = new std::thread(std::mem_fn(&mythread::RSPoseSolve), this, 100);
     Thread_RSDataCatch->join();
@@ -93,8 +93,8 @@ void mythread::RSPoseSolve(long fps)
 
         auto now = std::chrono::high_resolution_clock::now();
 
-        imu->imu_pose_calculate(imu->RS2VecToFusionVec(rs_t->return_gyro_frame()),
-                                imu->RS2VecToFusionVec(rs_t->return_accel_frame()));
+        imu->imu_pose_calculate(imu->RS2WToFusionW(imu->RS2VecToFusionVec(rs_t->return_gyro_frame())),
+                                imu->RS2AToFusionA(imu->RS2VecToFusionVec(rs_t->return_accel_frame())));
 
         std::cout << "Euler: " << imu->return_euler().x << " " << imu->return_euler().y
                   << " " << imu->return_euler().z << " " << std::endl;

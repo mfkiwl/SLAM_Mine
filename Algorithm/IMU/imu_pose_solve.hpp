@@ -81,4 +81,22 @@ public:
         b.axis.z = a.z;
         return b;
     }
+
+    static inline FusionVector RS2WToFusionW(FusionVector a)
+    {
+        FusionVector b;
+        b.axis.x = a.axis.z;
+        b.axis.y = a.axis.x;
+        b.axis.z = a.axis.y;
+        return b;
+    }
+
+    static inline FusionVector RS2AToFusionA(FusionVector a)
+    {
+        FusionVector b;
+        b.axis.x = a.axis.z;
+        b.axis.y = a.axis.x;
+        b.axis.z = -a.axis.y;
+        return b;
+    }
 };

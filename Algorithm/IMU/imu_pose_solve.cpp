@@ -33,7 +33,7 @@ bool imu_pose::imu_init(realsense &rs_t)
     FusionAhrsInitialise(&ahrs);
     // Set AHRS algorithm settings
     const FusionAhrsSettings settings = {
-        .gain = 0.5f,
+        .gain = 0.3f,
         .accelerationRejection = 10.0f,
         .magneticRejection = 20.0f,
         .rejectionTimeout = 5 * SAMPLE_RATE, /* 5 seconds */
@@ -115,8 +115,8 @@ void imu_pose::imu_pose_calculate(FusionVector gyroscope, FusionVector accelerom
 rs2_vector imu_pose::return_euler(void)
 {
     rs2_vector a;
-    a.x = euler.angle.pitch;
-    a.y = euler.angle.roll;
+    a.x = euler.angle.roll;
+    a.y = euler.angle.pitch;
     a.z = euler.angle.yaw;
     return a;
 }
