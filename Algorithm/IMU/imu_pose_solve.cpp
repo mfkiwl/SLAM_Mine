@@ -33,8 +33,8 @@ bool imu_pose::imu_init(realsense &rs_t)
     FusionAhrsInitialise(&ahrs);
     // Set AHRS algorithm settings
     const FusionAhrsSettings settings = {
-        .gain = 0.3f,
-        .accelerationRejection = 10.0f,
+        .gain = 0.5f,
+        .accelerationRejection = 20.0f,
         .magneticRejection = 20.0f,
         .rejectionTimeout = 5 * SAMPLE_RATE, /* 5 seconds */
     };

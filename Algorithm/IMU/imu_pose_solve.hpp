@@ -94,8 +94,8 @@ public:
     static inline FusionVector RS2AToFusionA(FusionVector a)
     {
         FusionVector b;
-        b.axis.x = a.axis.z;
-        b.axis.y = a.axis.x;
+        b.axis.x = -a.axis.z;
+        b.axis.y = -a.axis.x;
         b.axis.z = -a.axis.y;
         return b;
     }
