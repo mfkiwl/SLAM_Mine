@@ -1,9 +1,9 @@
-#include "mythread.hpp"
+#include "MyThread.hpp"
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-    mythread slam_thread;
+    MyThread slam_thread;
     return 0;
 }
