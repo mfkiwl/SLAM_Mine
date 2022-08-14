@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/main.cpp.o -c /home/lmh/桌面/slam/main.cpp",
+  "file": "/home/lmh/桌面/slam/main.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/MyThread.cpp.o -c /home/lmh/桌面/slam/MyThread.cpp",
+  "file": "/home/lmh/桌面/slam/MyThread.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Camera/RealSense/RealSense.cpp.o -c /home/lmh/桌面/slam/Camera/RealSense/RealSense.cpp",
+  "file": "/home/lmh/桌面/slam/Camera/RealSense/RealSense.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/IMU/ImuPoseSolve.cpp.o -c /home/lmh/桌面/slam/Algorithm/IMU/ImuPoseSolve.cpp",
+  "file": "/home/lmh/桌面/slam/Algorithm/IMU/ImuPoseSolve.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9  -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/IMU/Fusion/FusionAhrs.c.o   -c /home/lmh/桌面/slam/Algorithm/IMU/Fusion/FusionAhrs.c",
+  "file": "/home/lmh/桌面/slam/Algorithm/IMU/Fusion/FusionAhrs.c"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9  -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/IMU/Fusion/FusionCompass.c.o   -c /home/lmh/桌面/slam/Algorithm/IMU/Fusion/FusionCompass.c",
+  "file": "/home/lmh/桌面/slam/Algorithm/IMU/Fusion/FusionCompass.c"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9  -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/IMU/Fusion/FusionOffset.c.o   -c /home/lmh/桌面/slam/Algorithm/IMU/Fusion/FusionOffset.c",
+  "file": "/home/lmh/桌面/slam/Algorithm/IMU/Fusion/FusionOffset.c"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/VisualOdometer/MyVisualOdometer.cpp.o -c /home/lmh/桌面/slam/Algorithm/VisualOdometer/MyVisualOdometer.cpp",
+  "file": "/home/lmh/桌面/slam/Algorithm/VisualOdometer/MyVisualOdometer.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/VisualOdometer/FeaturePoints/MyFeaturePoints.cpp.o -c /home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints/MyFeaturePoints.cpp",
+  "file": "/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints/MyFeaturePoints.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/pose_estimation.cpp.o -c /home/lmh/桌面/slam/Algorithm/pose_estimation.cpp",
+  "file": "/home/lmh/桌面/slam/Algorithm/pose_estimation.cpp"
+},
+{
+  "directory": "/home/lmh/桌面/slam/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/lmh/桌面/slam/Camera/RealSense -I/home/lmh/桌面/slam/Algorithm -I/home/lmh/桌面/slam/Algorithm/IMU -I/home/lmh/桌面/slam/Algorithm/IMU/Fusion -I/home/lmh/桌面/slam/Algorithm/VisualOdometer -I/home/lmh/桌面/slam/Algorithm/VisualOdometer/FeaturePoints -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/slam.dir/Algorithm/distance_estimation.cpp.o -c /home/lmh/桌面/slam/Algorithm/distance_estimation.cpp",
+  "file": "/home/lmh/桌面/slam/Algorithm/distance_estimation.cpp"
+}
+]
