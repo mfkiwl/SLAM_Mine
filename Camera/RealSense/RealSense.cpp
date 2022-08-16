@@ -241,6 +241,7 @@ catch (int exce)
     }
     std::unexpected();
 }
+
 cv::Mat RealSense::return_depth_frame(void)
 {
     const int w = depth_frame.get_width();
@@ -267,4 +268,15 @@ rs2_vector RealSense::return_accel_frame(void)
 {
     rs2_vector accel_data = accel_frame.get_motion_data();
     return accel_data;
+}
+
+color_frame_state_e RealSense::return_color_type(void)
+{
+    return color_frame_state;
+}
+
+cv::Mat RealSense::return_camera_inside_param(void)
+{
+    cv::Mat K = (cv::Mat_<double>(3, 3) << fx, 0, ppx, 0, fy, ppy, 0, 0, 1);
+    return K;
 }

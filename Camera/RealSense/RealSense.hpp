@@ -5,6 +5,13 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 
+enum color_frame_state_e
+{
+    BGR = 0,
+    RGB,
+    GRAY
+};
+
 class RealSense
 {
 private:
@@ -23,12 +30,7 @@ private:
     double ppx = 317.4;
     double ppy = 246.356;
 
-    enum color_frame_state_e
-    {
-        BGR = 0,
-        RGB,
-        GRAY
-    } color_frame_state;
+    color_frame_state_e color_frame_state;
 
     int exce;
 
@@ -48,4 +50,8 @@ public:
     cv::Mat return_depth_frame(void);
     rs2_vector return_gyro_frame(void);
     rs2_vector return_accel_frame(void);
+
+    color_frame_state_e return_color_type(void);
+
+    cv::Mat return_camera_inside_param(void);
 };

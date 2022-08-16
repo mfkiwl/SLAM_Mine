@@ -17,6 +17,8 @@ include_directories(
 
     Algorithm/VisualOdometer
     Algorithm/VisualOdometer/FeaturePoints
+    Algorithm/VisualOdometer/PositionEstimation
+    Algorithm/VisualOdometer/DistanceEstimation
 
     ${OpenCV_INCLUDE_DIRS}
 )
@@ -34,10 +36,8 @@ Algorithm/IMU/Fusion/FusionOffset.c
 
 Algorithm/VisualOdometer/MyVisualOdometer.cpp
 Algorithm/VisualOdometer/FeaturePoints/MyFeaturePoints.cpp
-
-Algorithm/pose_estimation.cpp
-Algorithm/distance_estimation.cpp
-
+Algorithm/VisualOdometer/PositionEstimation/MyPositionEstimation.cpp
+Algorithm/VisualOdometer/DistanceEstimation/MyDistanceEstimation.cpp
 )
 
 target_link_libraries(

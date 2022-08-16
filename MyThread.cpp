@@ -29,7 +29,7 @@ MyThread::MyThread(/* args */)
     rs_t = new RealSense();
     // rs_t = new RealSense(true, true, true, true);
     imu_t = new ImuPose();
-    vo_t = new MyVisualOdometer();
+    vo_t = new MyVisualOdometer(rs_t->return_camera_inside_param());
     Thread_RSDataCatch = new std::thread(std::mem_fn(&MyThread::RSDataCatch), this, 50);
     Thread_RSPoseSolve = new std::thread(std::mem_fn(&MyThread::RSPoseSolve), this, 100);
     Thread_SLAMTest1 = new std::thread(std::mem_fn(&MyThread::SLAMTest1), this);
@@ -120,12 +120,21 @@ void MyThread::SLAMTest1(void)
             continue;
         }
         auto now = std::chrono::high_resolution_clock::now();
-        std::cout << "SLAM FPS is: " << FPS_Calc(start, now) << std::endl;
+        // std::cout << "SLAM FPS is: " << FPS_Calc(start, now) << std::endl;
 
+        pre_frame = now_frame;
+        now_frame = rs_t->return_color_frame("RGB");
+        if (pre_frame.empty() || now_frame.empty())
+        {
+            continue;
+        }
+        vo_t->fp_match(pre_frame, now_frame);
+        cv::drawMatches(pre_frame, vo_t->return_fp_keypoints()[0],
+                        now_frame, vo_t->return_fp_keypoints()[1],
+                        vo_t->return_fp_matches(), img_frame);
+        vo_t->pos_estimate();
+        std::cout << "t:" << vo_t->return_pos_estimation()[1] << "\r" << std::endl;
+        cv::imshow("Matches", img_frame);
         cv::waitKey(1);
-        // for (auto i = 0; i < 10000000; i++)
-        // {
-        //     ;
-        // }
     }
 }
