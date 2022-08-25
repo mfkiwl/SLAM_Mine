@@ -17,8 +17,8 @@ public:
 
     void orb_match(
         cv::Mat pre_frame, cv::Mat now_frame,
-        cv::DescriptorMatcher::MatcherType match_type = cv::DescriptorMatcher::BRUTEFORCE_HAMMING,
-        double min_dist = 0, double max_dist = 100);
+        double min_dist, double max_dist,
+        cv::DescriptorMatcher::MatcherType match_type = cv::DescriptorMatcher::BRUTEFORCE_HAMMING);
 
     std::vector<cv::DMatch> return_matches(void);
     std::vector<std::vector<cv::KeyPoint>> return_keypoints(void);

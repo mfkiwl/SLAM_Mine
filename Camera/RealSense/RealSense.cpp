@@ -152,7 +152,7 @@ bool RealSense::accel_frame_solve(void)
     return true;
 }
 
-cv::Mat RealSense::return_color_frame(std::string color_type)
+cv::Mat RealSense::return_color_frame(std::string color_type, cv::Size size)
 try
 {
     const int w = color_frame.get_width();
@@ -230,6 +230,7 @@ try
         exce = 1;
         throw exce;
     }
+    cv::resize(cv_frame, cv_frame, size);
     return cv_frame;
 }
 catch (int exce)

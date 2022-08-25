@@ -52,10 +52,3 @@ std::vector<cv::Mat> MyPositionEstimation::return_estimation(void)
 {
     return estimation_matrix;
 }
-
-cv::Point2d MyPositionEstimation::pixel2cam(cv::Point2d p, cv::Mat K)
-{
-    return cv::Point2d(
-        (p.x - K.at<double>(0, 2)) / K.at<double>(0, 0),
-        (p.y - K.at<double>(1, 2)) / K.at<double>(1, 1));
-}

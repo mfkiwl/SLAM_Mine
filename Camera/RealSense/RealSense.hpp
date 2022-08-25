@@ -46,7 +46,7 @@ public:
     bool gyro_frame_solve(void);
     bool accel_frame_solve(void);
 
-    cv::Mat return_color_frame(std::string color_type = "BGR");
+    cv::Mat return_color_frame(std::string color_type = "BGR", cv::Size size = cv::Size(800, 600));
     cv::Mat return_depth_frame(void);
     rs2_vector return_gyro_frame(void);
     rs2_vector return_accel_frame(void);

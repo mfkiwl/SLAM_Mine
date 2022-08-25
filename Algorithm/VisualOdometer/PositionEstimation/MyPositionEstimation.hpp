@@ -20,7 +20,5 @@ public:
         std::vector<cv::DMatch> matches,
         cv::Mat K);
 
-    cv::Point2d pixel2cam(cv::Point2d p, cv::Mat K);
-
     std::vector<cv::Mat> return_estimation(void);
 };

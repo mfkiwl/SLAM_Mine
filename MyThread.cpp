@@ -24,6 +24,23 @@ void MyThread::Thread(long fps)
 
 */
 
+cv::Point2d pixel_cam(cv::Point2d p, cv::Mat K)
+{
+    return cv::Point2d(
+        (p.x - K.at<double>(0, 2)) / K.at<double>(0, 0),
+        (p.y - K.at<double>(1, 2)) / K.at<double>(1, 1));
+};
+
+cv::Scalar i_get_color(float depth)
+{
+    float up_th = 50, low_th = 10, th_range = up_th - low_th;
+    if (depth > up_th)
+        depth = up_th;
+    if (depth < low_th)
+        depth = low_th;
+    return cv::Scalar(255 * depth / th_range, 0, 255 * (1 - depth / th_range));
+}
+
 MyThread::MyThread(/* args */)
 {
     rs_t = new RealSense();
@@ -131,10 +148,26 @@ void MyThread::SLAMTest1(void)
         vo_t->fp_match(pre_frame, now_frame);
         cv::drawMatches(pre_frame, vo_t->return_fp_keypoints()[0],
                         now_frame, vo_t->return_fp_keypoints()[1],
-                        vo_t->return_fp_matches(), img_frame);
+                        vo_t->return_fp_matches(),
+                        img_frame);
         vo_t->pos_estimate();
-        std::cout << "t:" << vo_t->return_pos_estimation()[1] << "\r" << std::endl;
-        cv::imshow("Matches", img_frame);
+        vo_t->dist_estimate();
+
+        cv::Mat img_frame = pre_frame;
+
+        for (int i = 0; i < vo_t->return_fp_matches().size(); i++)
+        {
+            // 第一个图
+            float depth1 = vo_t->return_dist_estimation()[i].z;
+            std::cout << "depth: " << depth1 << std::endl;
+            cv::Point2d pt1_cam = pixel_cam(
+                vo_t->return_fp_keypoints()[0][vo_t->return_fp_matches()[i].queryIdx].pt, rs_t->return_camera_inside_param());
+            cv::circle(img_frame, vo_t->return_fp_keypoints()[0][vo_t->return_fp_matches()[i].queryIdx].pt, 2,
+                       i_get_color(depth1), 2);
+        }
+
+        cv::imshow("img", img_frame);
+
         cv::waitKey(1);
     }
 }
