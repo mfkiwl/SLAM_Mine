@@ -20,5 +20,7 @@ public:
         std::vector<cv::DMatch> matches,
         cv::Mat K);
 
+    void pos_estimate_3d2d(void);
+
     std::vector<cv::Mat> return_estimation(void);
 };

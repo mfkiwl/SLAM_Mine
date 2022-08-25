@@ -48,6 +48,10 @@ void MyPositionEstimation::pos_estimate_2d2d(
     }
 }
 
+void MyPositionEstimation::pos_estimate_3d2d(void)
+{
+}
+
 std::vector<cv::Mat> MyPositionEstimation::return_estimation(void)
 {
     return estimation_matrix;
